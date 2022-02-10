@@ -11,3 +11,7 @@ var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
+
+// sounds effects
+var sfxRight = new Audio("assets/sfx/correct.wav");
+var sfxWrong = new Audio("assets/sfx/incorrect.wav");
