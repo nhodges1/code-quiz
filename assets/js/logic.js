@@ -102,3 +102,55 @@ function questionClick() {
     }
 }
 
+function quizEnd() {
+    // stop timer
+    clearInterval(timerId);
+
+    // show end screen
+    var endScreenEl = document.getElementById("end-screen");
+    endScreenEl.removeAttribute("class");
+
+    // show final score
+    var finalscoreEl = docuument.getElementById("final-score");
+    finalscoreEl.textContent = time;
+
+    // hide questions section
+    questionsEl.setAttribute("class", "hide");
+}
+
+function clockTick() {
+    // update time
+    time--;
+    timerEl.textContent = time;
+
+    // check if user ran out of time
+    if (time <=0) {
+        quizEnd();
+    }
+}
+
+function saveHighscore() {
+    // get value of input box
+    var initials = initialsEl.value.trim();
+
+    // make sure value isn't empty
+    if (initials !== "") {
+        // get saved scored from localstorage
+        var highscores =
+            JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+        // format new score object for current user
+        var newScore = {
+            score: time,
+            initials: initials
+        };
+
+        // save to localStorage
+        highscores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+        // redirect to next page
+        window.location.href = "highscores.html";
+    }
+}
+
