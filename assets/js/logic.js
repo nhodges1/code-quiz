@@ -15,3 +15,20 @@ var feedbackEl = document.getElementById("feedback");
 // sounds effects
 var sfxRight = new Audio("assets/sfx/correct.wav");
 var sfxWrong = new Audio("assets/sfx/incorrect.wav");
+
+function startQuiz() {
+    // hide start screen
+    var startScreenEl = document.getElementById("start-screen");
+    startScreenEl.setAttribute("class", "hide");
+
+    // show questions section
+    questionsEl.removeAttribute("class");
+
+    // start timer
+    timerId = setInterval(clockTick, 1000);
+
+    // show timer
+    timerEl.textContent = time;
+
+    getQuestion();
+}
