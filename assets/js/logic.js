@@ -35,7 +35,7 @@ function startQuiz() {
 
 function getQuestion() {
     // get current question from array
-    var currentQuestion = question[currentQuestionIndex];
+    var currentQuestion = questions[currentQuestionIndex];
 
     // update title with current question
     var titleEl = document.getElementById("question-title");
@@ -97,7 +97,7 @@ function questionClick() {
     // check if we're out of questions
     if (currentQuestionIndex === questions.length) {
         quizEnd();
-    }else {
+    } else {
         getQuestion();
     }
 }
@@ -111,8 +111,8 @@ function quizEnd() {
     endScreenEl.removeAttribute("class");
 
     // show final score
-    var finalscoreEl = docuument.getElementById("final-score");
-    finalscoreEl.textContent = time;
+    var finalScoreEl = document.getElementById("final-score");
+    finalScoreEl.textContent = time;
 
     // hide questions section
     questionsEl.setAttribute("class", "hide");
@@ -150,7 +150,7 @@ function saveHighscore() {
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
         // redirect to next page
-        window.location.href = "highscores.html";
+        window.location.href = "scores.html";
     }
 }
 
@@ -165,6 +165,6 @@ function checkForEnter(event) {
 submitBtn.onclick = saveHighscore;
 
 // user clicks button to start quiz
-startBtn.onlcick = startQuiz;
+startBtn.onclick = startQuiz;
 
 initialsEl.onkeyup = checkForEnter;
