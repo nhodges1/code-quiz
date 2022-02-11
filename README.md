@@ -28,4 +28,4 @@ THEN I can save my initials and score
 
 The following animation demonstrates the application functionality:
 
-![code quiz](https://watch.screencastify.com/v/xI9OT5pJQVSp9pkR050c)
+![code quiz](./assets/demo.gif)
